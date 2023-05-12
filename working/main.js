@@ -35,9 +35,11 @@ class Field {
         if (move === 'l') {
             this.playerX += 1
         }
+    }
 
-        myField.field[this.playerX][this.playerY] = "*"
-        myField.print()
+    printNewPosition() {
+        this.field[this.playerX][this.playerY] = "*"
+        this.print()
     }
 
     askForMove() {
@@ -57,6 +59,7 @@ function PlayGame() {
     while (!gameOver) {
         myField.print()
         myField.calcNewPosition(myField.askForMove())
+        myField.printNewPosition()
     }
 }
 
