@@ -1,28 +1,9 @@
+const prompt = require('prompt-sync')({sigint: true});
+
 const hat = '^';
 const hole = 'O';
 const fieldCharacter = '░';
 const pathCharacter = '*';
-
-// IO STUFF HERE
-
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-const readLineAsync = msg => {
-    return new Promise(resolve => {
-        readline.question(msg, userRes => {
-            resolve(userRes);
-        });
-    });
-}
-
-async function prompt(promptLine) {
-    const userRes = await readLineAsync(promptLine);
-    readline.close();
-    return userRes
-}
 
 // MAIN CLASS
 class Field {
@@ -50,7 +31,7 @@ const myField = new Field([
 ]);
 
 async function askForMove() {
-    return await prompt('')
+    return prompt('')
 }
 
 const playerPosition = {row: 0, column: 0};
