@@ -52,10 +52,21 @@ async function askForMove() {
     return await prompt('Enter direction: ')
 }
 
+const playerPosition = {row: 0, column: 0};
+
+function movePlayer(move) {
+    if(move === 'd') {playerPosition.row = playerPosition.row +1}
+    if(move === 'r') {playerPosition.column = playerPosition.column +1}
+    if(move === 'l') {playerPosition.column = playerPosition.column -1}
+
+    myField.field[playerPosition.row][playerPosition.column] = "*"
+    myField.print()
+}
+
 function PlayGame() {
     myField.print()
-    const playerPosition = [0, 0]
-    askForMove().then(r => console.log(r))
+
+    askForMove().then(r => movePlayer(r))
 }
 
 PlayGame()
