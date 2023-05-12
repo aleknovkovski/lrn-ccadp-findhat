@@ -30,8 +30,8 @@ const myField = new Field([
     ['░', '^', '░'],
 ]);
 
-async function askForMove() {
-    return prompt('')
+function askForMove() {
+    movePlayer(prompt(''))
 }
 
 const playerPosition = {row: 0, column: 0};
@@ -46,9 +46,11 @@ function movePlayer(move) {
 }
 
 function PlayGame() {
-    myField.print()
-
-    askForMove().then(r => movePlayer(r))
+    let gameOver = false
+    while(!gameOver) {
+        myField.print()
+        askForMove()
+    }
 }
 
 PlayGame()
