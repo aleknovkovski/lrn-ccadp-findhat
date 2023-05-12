@@ -62,9 +62,9 @@ class Field {
     }
 }
 
-function generateField() {
-    const field = new Array(5).fill(0)
-        .map(el => new Array(7).fill(fieldCharacter));
+function generateField(width, height) {
+    const field = new Array(width).fill(0)
+        .map(el => new Array(height).fill(fieldCharacter));
 
     //
     field.forEach(row => {
@@ -78,7 +78,7 @@ function generateField() {
     return field
 }
 
-const myField = new Field(generateField());
+const myField = new Field(generateField(5, 7));
 
 
 function PlayGame() {
