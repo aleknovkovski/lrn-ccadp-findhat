@@ -65,6 +65,16 @@ class Field {
 function generateField() {
     const field = new Array(5).fill(0)
         .map(el => new Array(7).fill(fieldCharacter));
+
+    //
+    field.forEach(row => {
+        row.forEach((el,index) => {
+            const random = Math.random();
+            row[index] = random > 0.5 ? fieldCharacter : hole
+        })
+    })
+
+
     return field
 }
 
