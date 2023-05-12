@@ -45,6 +45,14 @@ class Field {
     askForMove() {
         return prompt('')
     }
+
+    outOfRange() {
+        return !Boolean(Boolean(this.field[this.playerX]) && Boolean(this.field[this.playerY]))
+    }
+
+    inHole() {
+        return this.field[this.playerX][this.playerY] === "O"
+    }
 }
 
 const myField = new Field([
@@ -60,6 +68,8 @@ function PlayGame() {
         myField.print()
         myField.calcNewPosition(myField.askForMove())
         myField.printNewPosition()
+        // console.log(myField.outOfRange())
+        // console.log(myField.inHole())
     }
 }
 
