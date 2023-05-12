@@ -39,6 +39,7 @@ class Field {
             })
             console.log(rowString)
         })
+        console.log("Which way?")
     }
 }
 
@@ -49,7 +50,7 @@ const myField = new Field([
 ]);
 
 async function askForMove() {
-    return await prompt('Enter direction: ')
+    return await prompt('')
 }
 
 const playerPosition = {row: 0, column: 0};
