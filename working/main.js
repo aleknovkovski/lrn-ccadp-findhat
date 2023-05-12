@@ -51,7 +51,15 @@ class Field {
     }
 
     inHole() {
-        return this.field[this.playerX][this.playerY] === "O"
+        if (!this.outOfRange()) {
+            return this.field[this.playerX][this.playerY] === "O"
+        } else {return false}
+    }
+
+    isHat() {
+        if (!this.outOfRange()) {
+            return this.field[this.playerX][this.playerY] === "^"
+        } else {return false}
     }
 }
 
@@ -67,9 +75,19 @@ function PlayGame() {
     while (!gameOver) {
         myField.print()
         myField.calcNewPosition(myField.askForMove())
-        myField.printNewPosition()
-        // console.log(myField.outOfRange())
-        // console.log(myField.inHole())
+
+        if (myField.inHole()) {
+            console.log('Ooops hole')
+            gameOver = true
+        } else if (myField.outOfRange()) {
+            console.log('Ooops out of bounds')
+            gameOver = true
+        } else if (myField.isHat()){
+            console.log('Yay you got the hat')
+            gameOver = true
+        } else {
+            myField.printNewPosition()
+        }
     }
 }
 
