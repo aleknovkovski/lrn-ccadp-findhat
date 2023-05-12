@@ -74,6 +74,17 @@ function generateField(width, height) {
         })
     })
 
+        // Set the "hat" location
+    const hatLocation = {
+      x: Math.floor(Math.random() * width),
+      y: Math.floor(Math.random() * height)
+    };
+    // Make sure the "hat" is not at the starting point
+    while (hatLocation.x === 0 && hatLocation.y === 0) {
+      hatLocation.x = Math.floor(Math.random() * width);
+      hatLocation.y = Math.floor(Math.random() * height);
+    }
+    field[hatLocation.y][hatLocation.x] = hat;
 
     return field
 }
