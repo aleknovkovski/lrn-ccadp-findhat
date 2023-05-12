@@ -62,15 +62,18 @@ class Field {
     }
 }
 
-const myField = new Field([
-    ['*', '░', 'O'],
-    ['░', 'O', '░'],
-    ['░', '^', '░'],
-]);
+function generateField() {
+    const field = new Array(5).fill(0)
+        .map(el => new Array(7).fill(fieldCharacter));
+    return field
+}
+
+const myField = new Field(generateField());
 
 
 function PlayGame() {
     let gameOver = false
+
     while (!gameOver) {
         myField.print()
         myField.calcNewPosition(myField.askForMove())
@@ -90,10 +93,4 @@ function PlayGame() {
     }
 }
 
-function generateField() {
-    const field = ['a']
-    return field
-}
-
-console.log(generateField())
-// PlayGame()
+PlayGame()
