@@ -90,4 +90,10 @@ function PlayGame() {
     }
 }
 
-PlayGame()
+function generateField() {
+    const field = ['a']
+    return field
+}
+
+console.log(generateField())
+// PlayGame()
