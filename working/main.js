@@ -26,13 +26,23 @@ class Field {
     }
 
     movePlayer(move) {
-    if(move === 'd') {this.playerX += 1}
-    if(move === 'r') {this.playerY += 1}
-    if(move === 'l') {this.playerX += 1}
+        if (move === 'd') {
+            this.playerX += 1
+        }
+        if (move === 'r') {
+            this.playerY += 1
+        }
+        if (move === 'l') {
+            this.playerX += 1
+        }
 
-    myField.field[this.playerX ][this.playerY] = "*"
-    myField.print()
-}
+        myField.field[this.playerX][this.playerY] = "*"
+        myField.print()
+    }
+
+    askForMove() {
+        this.movePlayer(prompt(''))
+    }
 }
 
 const myField = new Field([
@@ -41,17 +51,12 @@ const myField = new Field([
     ['░', '^', '░'],
 ]);
 
-function askForMove() {
-    myField.movePlayer(prompt(''))
-}
-
-
 
 function PlayGame() {
     let gameOver = false
-    while(!gameOver) {
+    while (!gameOver) {
         myField.print()
-        askForMove()
+        myField.askForMove()
     }
 }
 
