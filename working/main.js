@@ -28,4 +28,6 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 
-myField.print()
+function PlayGame() {
+    myField.print()
+}
