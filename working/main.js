@@ -10,6 +10,8 @@ class Field {
 
     constructor(field) {
         this.field = field;
+        this.playerX = 0;
+        this.playerY = 0;
     }
 
     print() {
@@ -22,6 +24,15 @@ class Field {
         })
         console.log("Which way?")
     }
+
+    movePlayer(move) {
+    if(move === 'd') {this.playerX += 1}
+    if(move === 'r') {this.playerY += 1}
+    if(move === 'l') {this.playerX += 1}
+
+    myField.field[this.playerX ][this.playerY] = "*"
+    myField.print()
+}
 }
 
 const myField = new Field([
@@ -31,19 +42,10 @@ const myField = new Field([
 ]);
 
 function askForMove() {
-    movePlayer(prompt(''))
+    myField.movePlayer(prompt(''))
 }
 
-const playerPosition = {row: 0, column: 0};
 
-function movePlayer(move) {
-    if(move === 'd') {playerPosition.row = playerPosition.row +1}
-    if(move === 'r') {playerPosition.column = playerPosition.column +1}
-    if(move === 'l') {playerPosition.column = playerPosition.column -1}
-
-    myField.field[playerPosition.row][playerPosition.column] = "*"
-    myField.print()
-}
 
 function PlayGame() {
     let gameOver = false
