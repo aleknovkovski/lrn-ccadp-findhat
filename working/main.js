@@ -47,7 +47,10 @@ class Field {
     }
 
     outOfRange() {
-        return !Boolean(Boolean(this.field[this.playerX]) && Boolean(this.field[this.playerY]))
+        return !(
+            Boolean(this.field[this.playerX]) &&
+            Boolean(this.field[this.playerY])
+        )
     }
 
     inHole() {
