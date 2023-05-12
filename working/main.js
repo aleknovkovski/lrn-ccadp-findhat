@@ -25,7 +25,7 @@ class Field {
         console.log("Which way?")
     }
 
-    movePlayer(move) {
+    calcNewPosition(move) {
         if (move === 'd') {
             this.playerX += 1
         }
@@ -41,7 +41,7 @@ class Field {
     }
 
     askForMove() {
-        this.movePlayer(prompt(''))
+        return prompt('')
     }
 }
 
@@ -56,7 +56,7 @@ function PlayGame() {
     let gameOver = false
     while (!gameOver) {
         myField.print()
-        myField.askForMove()
+        myField.calcNewPosition(myField.askForMove())
     }
 }
 
