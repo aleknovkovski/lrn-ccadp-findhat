@@ -33,7 +33,7 @@ class Field {
             this.playerY += 1
         }
         if (move === 'l') {
-            this.playerX += 1
+            this.playerX -= 1
         }
     }
 
