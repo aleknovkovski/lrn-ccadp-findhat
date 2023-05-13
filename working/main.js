@@ -70,7 +70,7 @@ function generateField(width, height) {
     field.forEach(row => {
         row.forEach((el, index) => {
             const random = Math.random();
-            row[index] = random > 0.5 ? fieldCharacter : hole
+            row[index] = random > 0.2 ? fieldCharacter : hole
         })
     })
 
@@ -89,7 +89,7 @@ function generateField(width, height) {
     return field
 }
 
-const myField = new Field(generateField(5, 7));
+const myField = new Field(generateField(15, 7));
 
 
 function PlayGame() {
