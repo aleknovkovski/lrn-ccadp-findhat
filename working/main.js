@@ -63,26 +63,26 @@ class Field {
 }
 
 function generateField(width, height) {
-    const field = new Array(width).fill(0)
-        .map(el => new Array(height).fill(fieldCharacter));
+    const field = new Array(height).fill(0)
+        .map(el => new Array(width).fill(fieldCharacter));
 
     //
     field.forEach(row => {
-        row.forEach((el,index) => {
+        row.forEach((el, index) => {
             const random = Math.random();
             row[index] = random > 0.5 ? fieldCharacter : hole
         })
     })
 
-        // Set the "hat" location
+    // Set the "hat" location
     const hatLocation = {
-      x: Math.floor(Math.random() * width),
-      y: Math.floor(Math.random() * height)
+        x: Math.floor(Math.random() * width),
+        y: Math.floor(Math.random() * height)
     };
     // Make sure the "hat" is not at the starting point
     while (hatLocation.x === 0 && hatLocation.y === 0) {
-      hatLocation.x = Math.floor(Math.random() * width);
-      hatLocation.y = Math.floor(Math.random() * height);
+        hatLocation.x = Math.floor(Math.random() * width);
+        hatLocation.y = Math.floor(Math.random() * height);
     }
     field[hatLocation.y][hatLocation.x] = hat;
 
@@ -102,10 +102,10 @@ function PlayGame() {
         if (myField.outOfRange()) {
             console.log('Ooops out of bounds')
             gameOver = true
-        }  else if (myField.inHole()) {
+        } else if (myField.inHole()) {
             console.log('Ooops hole')
             gameOver = true
-        } else if (myField.isHat()){
+        } else if (myField.isHat()) {
             console.log('Yay you got the hat')
             gameOver = true
         } else {
