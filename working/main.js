@@ -29,6 +29,9 @@ class Field {
         if (move === 'd') {
             this.playerX += 1
         }
+        if (move === 'u') {
+            this.playerX -= 1
+        }
         if (move === 'r') {
             this.playerY += 1
         }
