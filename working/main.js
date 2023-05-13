@@ -36,7 +36,7 @@ class Field {
             this.playerY += 1
         }
         if (move === 'l') {
-            this.playerX -= 1
+            this.playerY -= 1
         }
     }
 
@@ -50,9 +50,11 @@ class Field {
     }
 
     outOfRange() {
-        return !(
-            Boolean(this.field[this.playerX]) &&
-            Boolean(this.field[this.playerY])
+        return (
+            this.playerX > this.field.length ||
+            this.playerX < 0 ||
+            this.playerY > this.field[0].length ||
+            this.playerY < 0
         )
     }
 
